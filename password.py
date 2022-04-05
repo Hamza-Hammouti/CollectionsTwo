@@ -21,5 +21,4 @@ def password():
         random.shuffle(wachtwoord)
 
     return ''.join(wachtwoord)
-    
 print(password())
