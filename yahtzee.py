@@ -1,15 +1,15 @@
 import random
 from re import T
-score=[]
-algescoord=[]  
+scoren=[]
+allgescort=[]  
 dobbelcijfers = [1,2,3,4,5,6]
-def throw():
+def gooien():
     gegooit = []
     for x in range(5):
         gegooit.append(random.choice(dobbelcijfers))
     for x in range(3):
         print(gegooit)
-        keuze = input('Welke dobbelsteen wilt u opnieuw gooien? ')
+        keuze = input('welke dobbelsteen wilt u opnieuw gooien? ')
         keuze = keuze.split()
         if keuze[0] == '0':
             return gegooit
@@ -22,25 +22,25 @@ def throw():
 def score():
     print(gegooit)
     while True:
-        keuze = int(input('Op welke dobbelsteen wilt u scoren? '))
-        if (keuze in algescoord):
-            print('Op dit nummer heb je al gescoord')
+        keuze = int(input('op welke dobbelsteen wilt u scoren? '))
+        if (keuze in allgescort):
+            print('op dit nummer heb je all gescort')
         else:
-            scoredobbel = gegooit.count(keuze)
-            score.append(scoredobbel*keuze)
-            print(f'Jouw score is: {score}')
-            algescoord.append(keuze)
+            scorendobbel = gegooit.count(keuze)
+            scoren.append(scorendobbel*keuze)
+            print(f'jouw score is: {scoren}')
+            allgescort.append(keuze)
             return
 
-def eindscore():
-    eindscore = sum(score)
+def eindscoren():
+    eindscore = sum(scoren)
     if eindscore >= 63:
         print(f'Omdat uw score {eindscore} krijgt u 35 punten als bonus')
         eindscore = eindscore + 35
     return eindscore
 
 for x in range(6):
-    gegooit = throw()
+    gegooit = gooien()
     score() 
-eindscore = eindscore()
-print(f'Jouw eindscore is: {eindscore}')
+eindscore = eindscoren()
+print(f'jouw eind scoren is: {eindscore}')
